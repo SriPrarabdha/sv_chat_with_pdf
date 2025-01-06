@@ -15,14 +15,14 @@
 
 - Start with cloning this repo
 ```
-git clone https://github.com/SriPrarabdha/ema-take-home-challenge.git
+git clone https://github.com/SriPrarabdha/sv_chat_with_pdf.git
 ```
 
 - add your data files onto ```data/``` folder
 
 - Create your own .env file and add the Groq api key
 ```
-GROQ_API_KEY = "<API-KEY>"
+export GROQ_API_KEY = "<API-KEY>"
 ```
 
 - run ```python data_ingestion.py``` to ingest and store the data locally
@@ -90,17 +90,3 @@ As the reranker works on a smaller subset of data after retrieval, different, po
 ## 8. Response Generation
 
 The response generation stage leverages the collective output of the preceding components, including the retrieved and reranked textual chunks, as well as any additional context and chat history associated with the user's query with Groq based Llama3 llm.
-
-## Future Deployment and Scaling Approaches
-
-As the number of lectures, papers, or other educational resources grows, the chatbot system must be designed to scale efficiently and maintain its performance. Here are some potential deployment and scaling approaches:
-
-1. **Distributed Vector Store**: To handle a large volume of embeddings and ensure efficient retrieval, the vector store (qdrant) can be distributed across multiple nodes or servers. This distributed architecture allows for parallel processing, load balancing, and horizontal scaling, enabling the system to handle an increasing number of embeddings without compromising performance.
-
-2. **Sharding and Partitioning**: The knowledge base can be partitioned or sharded based on specific criteria, such as subject matter, domains, or topics. Each shard or partition can have its own dedicated vector store, embedding model, and associated components. This approach not only enhances scalability but also enables specialized processing and optimization for different knowledge domains.
-
-3. **Incremental Indexing and Updates**: Instead of reindexing the entire knowledge base every time new content is added, an incremental indexing and updating mechanism can be implemented. This approach allows for efficient integration of new documents or resources into the existing vector store and knowledge base, minimizing downtime and ensuring seamless operation.
-
-4. **Caching and Precomputation**: Frequently accessed or computationally intensive operations, such as embedding generation or similarity searches, can be cached or precomputed to reduce latency and improve overall system performance. This approach can be particularly beneficial for handling frequently asked queries or retrieving information from commonly accessed knowledge domains.
-
-5. **Replacing Langchain**: However easy it may be to prototype our ai applications in langchain. But we should stop using langchain after prototyping. We should develop our own agent orchestration tools for a product in production
