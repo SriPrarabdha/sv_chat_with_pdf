@@ -1,0 +1,9 @@
+langchain
+langchain-groq
+fastembed
+flashrank
+qdrant-client
+semantic-router
+langchain-community
+pypdf
+langchain-experimental

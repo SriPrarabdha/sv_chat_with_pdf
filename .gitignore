@@ -1,0 +1,6 @@
+.env
+__pycache__
+.lightning_studio
+.idea
+.vscode
+env
