@@ -12,7 +12,6 @@
 </pre>
 
 [![Watch the video](https://img.youtube.com/vi/0_chkpsjHyo/hqdefault.jpg)](https://www.youtube.com/watch?v=0_chkpsjHyo)
-
 ## Quickstart
 
 - Start with cloning this repo
@@ -33,7 +32,7 @@ export GROQ_API_KEY = "<API-KEY>"
 
 - run ```streamlit run chatbot.py``` to chat on a local web ui with multiple pdfs
 
-- OR use the deployed streamlit web app - https://8503-01jgy2r5wprq1yyp35nmnhzk4e.cloudspaces.litng.ai/
+- OR use the deployed streamlit web app - https://8502-01jgy2r5wprq1yyp35nmnhzk4e.cloudspaces.litng.ai
 
 ## 1. User Documents
 
