@@ -10,7 +10,7 @@
 ✅ Citing References          ✅ Summary for history     ✅ Serverless Deployment   
 ✅ Multiple PDF Support       ✅ Opensource LLM          ✅ Opensource DB         
 </pre>
-[![Watch the video](assets/demo.mp4)]
+[![Watch the video](https://www.youtube.com/watch?v=0_chkpsjHyo)]
 ## Quickstart
 
 - Start with cloning this repo
