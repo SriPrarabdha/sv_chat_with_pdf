@@ -10,7 +10,7 @@
 ✅ Citing References          ✅ Summary for history     ✅ Serverless Deployment   
 ✅ Multiple PDF Support       ✅ Opensource LLM          ✅ Opensource DB         
 </pre>
-
+[![Watch the video](https://raw.githubusercontent.com/SriPrarabdha/sv_chat_with_pdf/raw/refs/heads/main/assets/demo.mp4)]
 ## Quickstart
 
 - Start with cloning this repo
