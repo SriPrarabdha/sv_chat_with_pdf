@@ -8,7 +8,7 @@
 
 <pre>
 ✅ Citing References          ✅ Summary for history     ✅ Serverless Deployment   
-✅ Conversational Memory      ✅ Opensource LLM          ✅ Opensource DB         
+✅ Multiple PDF Support       ✅ Opensource LLM          ✅ Opensource DB         
 </pre>
 
 ## Quickstart
@@ -27,9 +27,11 @@ export GROQ_API_KEY = "<API-KEY>"
 
 - run ```python data_ingestion.py``` to ingest and store the data locally
 
-- run ```python main.py``` to chat with your notes
+- run ```python main.py``` to chat with your data
 
-- OR use the deployed api - 
+- run ```streamlit run chatbot.py``` to chat on a local web ui with multiple pdfs
+
+- OR use the deployed streamlit web app - https://8503-01jgy2r5wprq1yyp35nmnhzk4e.cloudspaces.litng.ai/
 
 ## 1. User Documents
 
@@ -89,4 +91,4 @@ As the reranker works on a smaller subset of data after retrieval, different, po
 
 ## 8. Response Generation
 
-The response generation stage leverages the collective output of the preceding components, including the retrieved and reranked textual chunks, as well as any additional context and chat history associated with the user's query with Groq based Llama3 llm.
+The response generation stage leverages the collective output of the preceding components, including the retrieved and reranked textual chunks, as well as any additional context and chat history associated with the user's query with Groq based Llama 3.3 70b.
