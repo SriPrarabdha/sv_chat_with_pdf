@@ -11,9 +11,7 @@
 ✅ Multiple PDF Support       ✅ Opensource LLM          ✅ Opensource DB         
 </pre>
 
-<iframe width="800" height="450" src="https://www.youtube.com/embed/0_chkpsjHyo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-<video src='https://www.youtube.com/embed/0_chkpsjHyo' width=800 height=450/>
+[![Watch the video](https://img.youtube.com/vi/0_chkpsjHyo/hqdefault.jpg  | width=600)](https://www.youtube.com/watch?v=0_chkpsjHyo)
 
 ## Quickstart
 
