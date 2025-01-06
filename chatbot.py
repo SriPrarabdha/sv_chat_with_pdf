@@ -92,7 +92,6 @@ def initialize_rag_chain():
     pdf_files = st.session_state.get('pdf_files', [])
     collection_name = get_collection_name(pdf_files)
     
-    # Process all PDFs
     all_docs = []
     for pdf_file in pdf_files:
         # Save temporary file
@@ -108,19 +107,15 @@ def initialize_rag_chain():
         
         all_docs.extend(documents)
     
-    # Combine all documents
     combined_text = " ".join(doc.page_content for doc in all_docs)
     text_splitter = SemanticChunker(embeddings)
     docs = text_splitter.create_documents([combined_text])
     
-    # Get vector size from embeddings
     sample_embedding = embeddings.embed_query("sample text")
     vector_size = len(sample_embedding)
     
-    # Create collection
     create_collection(collection_name, vector_size)
     
-    # Initialize Qdrant with the documents
     qdrant = Qdrant(
         client=client,
         collection_name=collection_name,
@@ -168,7 +163,6 @@ pdf_files = st.sidebar.file_uploader(
     accept_multiple_files=True
 )
 
-# Store PDF files in session state
 if pdf_files:
     st.session_state.pdf_files = pdf_files
     
@@ -176,41 +170,33 @@ if pdf_files:
     current_pdf_names = {f.name for f in pdf_files}
     if current_pdf_names != st.session_state.current_pdfs:
         st.session_state.current_pdfs = current_pdf_names
-        # Clear previous RAG chain
         if 'rag_chain' in st.session_state:
             del st.session_state.rag_chain
-        # Initialize new RAG chain
+        
         st.session_state.rag_chain = initialize_rag_chain()
     
     st.sidebar.markdown("## Uploaded PDFs")
     for pdf_file in pdf_files:
-        # Write the PDF to a temporary file
         with open(f"temp_{pdf_file.name}", "wb") as f:
             f.write(pdf_file.getvalue())
         
-        # Read the PDF file and encode it to Base64
         try:
             with open(f"temp_{pdf_file.name}", "rb") as f:
                 pdf_bytes = f.read()
             base64_pdf = base64.b64encode(pdf_bytes).decode('utf-8')
             
-            # Create an iframe with the data URI
             pdf_display = f'<iframe src="data:application/pdf;base64,{base64_pdf}" width="300" height="300" type="application/pdf"></iframe>'
             
-            # Display the PDF in the sidebar
             st.sidebar.markdown(f"### {pdf_file.name}")
             st.sidebar.markdown(pdf_display, unsafe_allow_html=True)
             
-            # Remove the temporary PDF file
             os.remove(f"temp_{pdf_file.name}")
         except Exception as e:
             st.sidebar.error(f"Error displaying PDF {pdf_file.name}: {e}")
 
-# Main content for chat interface
 st.title("Chat with your PDFs")
 
 if pdf_files:
-    # Display chat history
     for message in st.session_state.chat_history:
         with st.chat_message(message["role"]):
             if message["role"] == "assistant":
@@ -237,7 +223,6 @@ if pdf_files:
             else:
                 st.write(message["content"])
 
-    # Chat input
     user_input = st.chat_input("Type your message here")
 
     if user_input and 'rag_chain' in st.session_state:
